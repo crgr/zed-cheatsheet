@@ -16,7 +16,7 @@ Place `zed-cheatsheet.html` on a known path, like `~/.config/zed/`.
 
 We will create a custom Zed Task that triggers macOS's native `qlmanage`. This forces a popup window to appear over Zed.
 
-Open Zed. Press <key>Cmd</key> + <key>Shift</key> + <key>P</key> and type `task: open tasks`.
+Open Zed. Press <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> and type `task: open tasks`.
 
 This opens your `tasks.json`. Add the following entry inside the brackets:
 
@@ -31,9 +31,9 @@ This opens your `tasks.json`. Add the following entry inside the brackets:
 ]
 ```
 
-You need to bind a specific key (like <key>Cmd</key> + <key>?</key>) to trigger this specific task instantly.
+You need to bind a specific key (like <kbd>Cmd</kbd> + <kbd>?</kbd>) to trigger this specific task instantly.
 
-Open your Keymap: <key>Cmd</key> + <key>Shift</key> + <key>P</key>, type `Open Keymap`, and press Enter.
+Open your Keymap: <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>, type `Open Keymap`, and press Enter.
 
 Add this entry to your keymap.json:
 
@@ -53,11 +53,11 @@ Add this entry to your keymap.json:
 
 ## 3. How to use it
 
-Now, you can just press <key>Cmd</key> + <key>?</key> (which is <key>Cmd</key> + <key>Shift</key> + <key>/</key>) and your cheatsheet overlay will appear instantly.
+Now, you can just press <kbd>Cmd</kbd> + <kbd>?</kbd> (which is <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>/</kbd>) and your cheatsheet overlay will appear instantly.
 
 A floating window with the 3-column cheatsheet will appear centered on your screen.
 
-Press <key>Esc</key> to dismiss it instantly.
+Press <kbd>Esc</kbd> to dismiss it instantly.
 
 > The first time you run it, macOS might ask for permission to access the folder/file. Click OK.
 
