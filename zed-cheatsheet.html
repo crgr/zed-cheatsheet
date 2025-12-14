@@ -2,53 +2,79 @@
 <html lang="en">
     <head>
         <style>
+            /* Catppuccin Mocha Palette */
+            :root {
+                --base: #1e1e2e;
+                --text: #cdd6f4;
+                --subtext: #a6adc8;
+                --surface0: #313244;
+                --surface1: #45475a;
+                --mauve: #cba6f7;
+                --crust: #11111b;
+                --red: #f38ba8; /* Added for Error styling if needed */
+            }
+
             body {
-                background-color: #1e1e1e; /* Zed Dark Background */
-                color: #cccccc;
+                background-color: var(--base);
+                color: var(--text);
                 font-family:
                     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
                     Helvetica, sans-serif;
                 font-size: 13px;
                 margin: 20px;
             }
+
             h2 {
-                color: #89b4fa;
-                border-bottom: 1px solid #444;
+                color: var(--mauve);
+                border-bottom: 1px solid var(--surface1);
                 padding-bottom: 5px;
                 margin-top: 0;
                 font-size: 15px;
+                font-weight: 600;
             }
+
             table {
                 width: 100%;
                 border-collapse: collapse;
                 margin-bottom: 15px;
             }
+
             td {
-                padding: 4px 0;
+                padding: 5px 0;
+                vertical-align: middle;
             }
-            /* Keys styling */
+
+            td:last-child {
+                color: var(--subtext);
+                padding-left: 8px;
+            }
+
+            /* Keycap Styling */
             kbd {
-                background-color: #333;
-                border: 1px solid #444;
-                border-radius: 3px;
-                padding: 2px 5px;
+                background-color: var(--surface0);
+                border: 1px solid var(--surface1);
+                border-bottom: 2px solid var(--crust);
+                border-radius: 4px;
+                padding: 2px 6px;
                 font-family: "JetBrains Mono", monospace;
-                color: #fff;
+                color: var(--text);
                 font-size: 11px;
-                box-shadow: 0 1px 0 #000;
+                display: inline-block;
             }
+
             /* 3-Column Layout */
             .container {
                 column-count: 3;
                 column-gap: 30px;
-                column-rule: 1px solid #333;
-                height: 95vh; /* Fits screen height */
+                column-rule: 1px solid var(--surface1);
+                height: 95vh;
             }
+
             .section {
                 break-inside: avoid;
                 display: inline-block;
                 width: 100%;
-                margin-bottom: 10px;
+                margin-bottom: 15px;
             }
         </style>
     </head>
@@ -205,6 +231,46 @@
             </div>
 
             <div class="section">
+                <h2>Git & VCS</h2>
+                <table>
+                    <tr>
+                        <td><kbd>⌘ ⌥ B</kbd></td>
+                        <td>Toggle Blame</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>⌘ ⇧ G</kbd></td>
+                        <td>Git Dock</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>⌃ ⇧ G</kbd></td>
+                        <td>Git Selection</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>Terminal & Errors</h2>
+                <table>
+                    <tr>
+                        <td><kbd>⌃ `</kbd></td>
+                        <td>Toggle Terminal</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>⌘ ⇧ M</kbd></td>
+                        <td>Diagnostics Panel</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>F8</kbd></td>
+                        <td>Next Error</td>
+                    </tr>
+                    <tr>
+                        <td><kbd>⇧ F8</kbd></td>
+                        <td>Prev Error</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
                 <h2>View</h2>
                 <table>
                     <tr>
@@ -218,10 +284,6 @@
                     <tr>
                         <td><kbd>⌘ ⌥ B</kbd></td>
                         <td>Right Dock</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌃ `</kbd></td>
-                        <td>Terminal</td>
                     </tr>
                     <tr>
                         <td><kbd>⌘ K arrows</kbd></td>

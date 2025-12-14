@@ -35,18 +35,33 @@ This opens your `tasks.json`. Add the following entry inside the brackets:
     "command": "qlmanage -p ~/.config/zed/cheatsheet.html >/dev/null 2>&1",
     "use_new_terminal": false,
     "hide": "always",
-    "keep_alive": false
   }
 ]
 ```
 
+You can bind a specific key (like <key>Cmd</key> + <key>?</key>) to trigger this specific task instantly.
+
+Open your Keymap: <key>Cmd</key> + <key>Shift</key> + <key>P</key>, type `Open Keymap`, and press Enter.
+
+Add this entry to your keymap.json:
+
+```JSON
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-?": ["task::Spawn", { "task_name": "Show Cheatsheet" }]
+    }
+  }
+]
+```
+
+Note: Make sure the task_name matches the "label" in your `tasks.json` exactly.
+
+
 3. How to use it
 
-Now, whenever you need the cheatsheet:
-
-Press <key>Cmd</key> + <key>Shift</key> + <key>P</key>.
-
-Type `Show Cheatsheet` (or just `Show`) and hit Enter.
+Now, you can just press <key>Cmd</key> + <key>?</key> (which is <key>Cmd</key> + <key>Shift</key> + <key>/</key>) and your cheatsheet overlay will appear instantly.
 
 A floating window with the 3-column cheatsheet will appear centered on your screen.
 
