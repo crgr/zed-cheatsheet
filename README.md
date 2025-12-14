@@ -8,11 +8,11 @@ Because it is built on standard HTML & CSS, it is infinitely customizable. You c
 
 Here is the setup:
 
-1. The Content (Compact HTML)
+## 1. The Content (Compact HTML)
 
 Place `zed-cheatsheet.html` on a known path, like `~/.config/zed/`.
 
-2. The "On Demand" Trigger (Zed Task)
+## 2. The "On Demand" Trigger (Zed Task)
 
 We will create a custom Zed Task that triggers macOS's native `qlmanage`. This forces a popup window to appear over Zed.
 
@@ -51,7 +51,7 @@ Add this entry to your keymap.json:
 > Make sure the task_name matches the "label" in your `tasks.json` exactly.
 
 
-3. How to use it
+## 3. How to use it
 
 Now, you can just press <key>Cmd</key> + <key>?</key> (which is <key>Cmd</key> + <key>Shift</key> + <key>/</key>) and your cheatsheet overlay will appear instantly.
 
