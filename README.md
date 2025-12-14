@@ -1,30 +1,22 @@
-Since Zed's terminal is small, the best approach is to use a macOS Native "Quick Look" window. This creates a floating, dark-mode overlay that pops up over Zed when you need it and vanishes when you hit Esc.
+# Zed IDE Cheatsheet (macOS)
+
+This project provides a lightning-fast, native-feeling shortcuts cheatsheet for the Zed IDE on macOS. Instead of context-switching to a web browser or squinting at a PDF, this setup uses a custom Zed Task and macOS's native Quick Look (`qlmanage`) to render a beautiful, single-page overlay instantly over your code that is dismissed when you hit Esc.
+
+The cheatsheet is designed as a lightweight, 3-column HTML file styled with the Catppuccin Mocha color palette to perfectly match modern dark themes. It covers all essential keybindings—from navigation and editing to multi-cursor magic—and fits entirely on a single screen without scrolling.
+
+Because it is built on standard HTML & CSS, it is infinitely customizable. You can easily modify the shortcuts, add project-specific notes, or tweak the styling, all while keeping your hands on the keyboard using a simple trigger.
 
 Here is the setup:
 
 1. The Content (Compact HTML)
 
-We will use HTML instead of Markdown because it allows us to split the content into 3 columns so it fits on one screen.
-
-To achieve a single-page view without scrolling, we need to move away from a vertical list (Markdown) and use a Multi-Column Grid.
-
-Since Zed's terminal is small, the best approach is to use a macOS Native "Quick Look" window. This creates a floating, dark-mode overlay that pops up over Zed when you need it and vanishes when you hit Esc.
-
-Here is the setup:
-
-1. The Content (Compact HTML)
-
-We will use HTML instead of Markdown because it allows us to split the content into 3 columns so it fits on one screen.
-
-Place `zed-cheatsheet.html` inside `~/.config/zed/`:
+Place `zed-cheatsheet.html` on a known path, like `~/.config/zed/`.
 
 2. The "On Demand" Trigger (Zed Task)
 
 We will create a custom Zed Task that triggers macOS's native `qlmanage`. This forces a popup window to appear over Zed.
 
-Open Zed.
-
-Press <key>Cmd</key> + <key>Shift</key> + <key>P</key> and type `task: open tasks`.
+Open Zed. Press <key>Cmd</key> + <key>Shift</key> + <key>P</key> and type `task: open tasks`.
 
 This opens your `tasks.json`. Add the following entry inside the brackets:
 
@@ -39,7 +31,7 @@ This opens your `tasks.json`. Add the following entry inside the brackets:
 ]
 ```
 
-You can bind a specific key (like <key>Cmd</key> + <key>?</key>) to trigger this specific task instantly.
+You need to bind a specific key (like <key>Cmd</key> + <key>?</key>) to trigger this specific task instantly.
 
 Open your Keymap: <key>Cmd</key> + <key>Shift</key> + <key>P</key>, type `Open Keymap`, and press Enter.
 
@@ -56,7 +48,7 @@ Add this entry to your keymap.json:
 ]
 ```
 
-Note: Make sure the task_name matches the "label" in your `tasks.json` exactly.
+> Make sure the task_name matches the "label" in your `tasks.json` exactly.
 
 
 3. How to use it
@@ -67,6 +59,6 @@ A floating window with the 3-column cheatsheet will appear centered on your scre
 
 Press <key>Esc</key> to dismiss it instantly.
 
-(Note: The first time you run it, macOS might ask for permission to access the folder/file. Click OK.)
+> The first time you run it, macOS might ask for permission to access the folder/file. Click OK.
 
 This project was inspired by the very useful https://cheatsheets.zip/zed.
