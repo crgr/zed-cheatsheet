@@ -69,4 +69,4 @@ Press <key>Esc</key> to dismiss it instantly.
 
 (Note: The first time you run it, macOS might ask for permission to access the folder/file. Click OK.)
 
-This project was inspired by the excellent https://cheatsheets.zip/zed.
+This project was inspired by the very useful https://cheatsheets.zip/zed.
