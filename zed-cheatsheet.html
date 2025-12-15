@@ -1,295 +1,354 @@
 <!doctype html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8" />
+        <title>Zed Cheatsheet</title>
         <style>
-            /* Catppuccin Mocha Palette */
             :root {
-                --base: #1e1e2e;
-                --text: #cdd6f4;
-                --subtext: #a6adc8;
-                --surface0: #313244;
-                --surface1: #45475a;
-                --mauve: #cba6f7;
-                --crust: #11111b;
-                --red: #f38ba8; /* Added for Error styling if needed */
+                /* Deep Midnight Theme */
+                --bg-body: #0f1117;
+                --bg-card: #1e212b;
+                --border-card: #2e3240;
+
+                /* Key Styling (Indigo/Purple) */
+                --key-bg: #4f46e5;
+                --key-shadow: #3730a3;
+                --key-text: #ffffff;
+
+                /* Badge Styling (Orange Text, Subtle BG) */
+                --badge-text: #f97316; /* Vibrant Orange */
+                --badge-bg: rgba(249, 115, 22, 0.15); /* 15% Opacity Orange */
+                --badge-border: rgba(
+                    249,
+                    115,
+                    22,
+                    0.3
+                ); /* 30% Opacity Border */
+
+                /* Text Colors */
+                --text-main: #e2e8f0;
+                --text-muted: #94a3b8;
             }
 
             body {
-                background-color: var(--base);
-                color: var(--text);
+                background-color: var(--bg-body);
+                color: var(--text-main);
                 font-family:
                     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-                    Helvetica, sans-serif;
+                    Helvetica, Arial, sans-serif;
                 font-size: 13px;
-                margin: 20px;
+                margin: 0;
+                padding: 35px 40px 40px 40px;
+                line-height: 1.5;
+            }
+
+            /* 3-Column Flex Layout */
+            .container {
+                display: flex;
+                gap: 24px;
+                align-items: flex-start;
+            }
+
+            .column {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .card {
+                background-color: var(--bg-card);
+                border: 1px solid var(--border-card);
+                border-radius: 12px;
+                padding: 20px;
+                margin-top: 12px;
+                position: relative;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
             }
 
             h2 {
-                color: var(--mauve);
-                border-bottom: 1px solid var(--surface1);
-                padding-bottom: 5px;
-                margin-top: 0;
-                font-size: 15px;
-                font-weight: 600;
+                position: absolute;
+                top: -12px;
+                right: 16px;
+
+                /* Updated Badge Style */
+                background-color: var(--badge-bg);
+                color: var(--badge-text);
+                border: 1px solid var(--badge-border);
+
+                font-size: 11px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                padding: 3px 10px; /* Slight adjust for border */
+                border-radius: 12px;
+                margin: 0;
+                backdrop-filter: blur(4px); /* Nice glass effect */
+                z-index: 10;
             }
 
             table {
                 width: 100%;
                 border-collapse: collapse;
-                margin-bottom: 15px;
+                margin-top: 5px;
             }
 
             td {
-                padding: 5px 0;
+                padding: 8px 0;
                 vertical-align: middle;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            tr:last-child td {
+                border-bottom: none;
             }
 
             td:last-child {
-                color: var(--subtext);
-                padding-left: 8px;
+                text-align: right;
+                color: var(--text-main);
+                font-weight: 500;
+                padding-left: 12px;
             }
 
             /* Keycap Styling */
             kbd {
-                background-color: var(--surface0);
-                border: 1px solid var(--surface1);
-                border-bottom: 2px solid var(--crust);
-                border-radius: 4px;
-                padding: 2px 6px;
-                font-family: "JetBrains Mono", monospace;
-                color: var(--text);
-                font-size: 11px;
+                background-color: var(--key-bg);
+                color: var(--key-text);
+                border: none;
+                border-radius: 6px;
+                padding: 3px 8px;
+                font-family: "JetBrains Mono", Menlo, Consolas, monospace;
+                font-size: 13px;
+                font-weight: 600;
+                box-shadow: 0 2px 0 var(--key-shadow);
                 display: inline-block;
-            }
-
-            /* 3-Column Layout */
-            .container {
-                column-count: 3;
-                column-gap: 30px;
-                column-rule: 1px solid var(--surface1);
-                height: 95vh;
-            }
-
-            .section {
-                break-inside: avoid;
-                display: inline-block;
-                width: 100%;
-                margin-bottom: 15px;
+                margin-right: 3px;
+                transform: translateY(-2px);
             }
         </style>
     </head>
     <body>
         <div class="container">
-            <div class="section">
-                <h2>General & App</h2>
-                <table>
-                    <tr>
-                        <td><kbd>⌘ ,</kbd></td>
-                        <td>Settings</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ ⇧ P</kbd></td>
-                        <td>Command Palette</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ ⇧ X</kbd></td>
-                        <td>Extensions</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ Q</kbd></td>
-                        <td>Quit</td>
-                    </tr>
-                </table>
+            <div class="column">
+                <div class="card">
+                    <h2>General</h2>
+                    <table>
+                        <tr>
+                            <td><kbd>⌘ ,</kbd></td>
+                            <td>Settings</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ ⇧ P</kbd></td>
+                            <td>Command Palette</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ ⇧ X</kbd></td>
+                            <td>Extensions</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ Q</kbd></td>
+                            <td>Quit</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <h2>File</h2>
+                    <table>
+                        <tr>
+                            <td><kbd>⌘ N</kbd></td>
+                            <td>New File</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ ⇧ N</kbd></td>
+                            <td>New Window</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ O</kbd></td>
+                            <td>Open</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ S</kbd></td>
+                            <td>Save</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ ⇧ S</kbd></td>
+                            <td>Save As</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ W</kbd></td>
+                            <td>Close Tab</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ ⇧ W</kbd></td>
+                            <td>Close Window</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <h2>View</h2>
+                    <table>
+                        <tr>
+                            <td><kbd>⌘ B</kbd></td>
+                            <td>Left Dock</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ J</kbd></td>
+                            <td>Bottom Dock</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ ⌥ B</kbd></td>
+                            <td>Right Dock</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ K</kbd> <kbd>→</kbd></td>
+                            <td>Split Pane</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
 
-            <div class="section">
-                <h2>File & Project</h2>
-                <table>
-                    <tr>
-                        <td><kbd>⌘ N</kbd></td>
-                        <td>New File</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ O</kbd></td>
-                        <td>Open</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ S</kbd></td>
-                        <td>Save</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ ⇧ S</kbd></td>
-                        <td>Save As</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ W</kbd></td>
-                        <td>Close Tab</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ ⇧ W</kbd></td>
-                        <td>Close Window</td>
-                    </tr>
-                </table>
+            <div class="column">
+                <div class="card">
+                    <h2>Navigation</h2>
+                    <table>
+                        <tr>
+                            <td><kbd>⌘ P</kbd></td>
+                            <td>Go to File</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ ⇧ O</kbd></td>
+                            <td>Symbol (File)</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ T</kbd></td>
+                            <td>Symbol (Proj)</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌃ G</kbd></td>
+                            <td>Go to Line</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>F12</kbd></td>
+                            <td>Definition</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ ⇧ F</kbd></td>
+                            <td>Find in Proj</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ F</kbd></td>
+                            <td>Find in File</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <h2>Editing</h2>
+                    <table>
+                        <tr>
+                            <td><kbd>⌘ Z</kbd></td>
+                            <td>Undo</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ ⇧ Z</kbd></td>
+                            <td>Redo</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ /</kbd></td>
+                            <td>Line Comment</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ [</kbd> <kbd>]</kbd></td>
+                            <td>Indent/Outdent</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ ⌃ ↑</kbd></td>
+                            <td>Move Line Up</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ ⌃ ↓</kbd></td>
+                            <td>Move Line Down</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ .</kbd></td>
+                            <td>Quick Fix</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
 
-            <div class="section">
-                <h2>Navigation</h2>
-                <table>
-                    <tr>
-                        <td><kbd>⌘ P</kbd></td>
-                        <td>Go to File</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ ⇧ O</kbd></td>
-                        <td>Symbol (File)</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ T</kbd></td>
-                        <td>Symbol (Proj)</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌃ G</kbd></td>
-                        <td>Go to Line</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>F12</kbd></td>
-                        <td>Definition</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ ⇧ F</kbd></td>
-                        <td>Find in Proj</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ F</kbd></td>
-                        <td>Find in File</td>
-                    </tr>
-                </table>
-            </div>
+            <div class="column">
+                <div class="card">
+                    <h2>Selection</h2>
+                    <table>
+                        <tr>
+                            <td><kbd>⌘ D</kbd></td>
+                            <td>Next Occur.</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ ⌃ D</kbd></td>
+                            <td>All Occur.</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ L</kbd></td>
+                            <td>Select Line</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌥ ↑</kbd></td>
+                            <td>Smart Expand</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌥ ↓</kbd></td>
+                            <td>Smart Shrink</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌥ ⇧</kbd></td>
+                            <td>Col. Select</td>
+                        </tr>
+                    </table>
+                </div>
 
-            <div class="section">
-                <h2>Editing</h2>
-                <table>
-                    <tr>
-                        <td><kbd>⌘ Z</kbd></td>
-                        <td>Undo</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ ⇧ Z</kbd></td>
-                        <td>Redo</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ /</kbd></td>
-                        <td>Toggle Comment</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ [</kbd> <kbd>]</kbd></td>
-                        <td>Indent</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ ⌃ ↑</kbd></td>
-                        <td>Move Line Up</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ ⌃ ↓</kbd></td>
-                        <td>Move Line Down</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ .</kbd></td>
-                        <td>Quick Fix</td>
-                    </tr>
-                </table>
-            </div>
+                <div class="card">
+                    <h2>Terminal</h2>
+                    <table>
+                        <tr>
+                            <td><kbd>⌃ `</kbd></td>
+                            <td>Toggle Term</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ ⇧ M</kbd></td>
+                            <td>Diagnostics</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>F8</kbd></td>
+                            <td>Next Error</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⇧ F8</kbd></td>
+                            <td>Prev Error</td>
+                        </tr>
+                    </table>
+                </div>
 
-            <div class="section">
-                <h2>Selection</h2>
-                <table>
-                    <tr>
-                        <td><kbd>⌘ D</kbd></td>
-                        <td>Next Occurrence</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ ⌃ D</kbd></td>
-                        <td>All Occurrences</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ L</kbd></td>
-                        <td>Select Line</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌥ ↑</kbd></td>
-                        <td>Smart Expand</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌥ ↓</kbd></td>
-                        <td>Smart Shrink</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌥ ⇧</kbd></td>
-                        <td>Column Select</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="section">
-                <h2>Git & VCS</h2>
-                <table>
-                    <tr>
-                        <td><kbd>⌘ ⌥ B</kbd></td>
-                        <td>Toggle Blame</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ ⇧ G</kbd></td>
-                        <td>Git Dock</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌃ ⇧ G</kbd></td>
-                        <td>Git Selection</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="section">
-                <h2>Terminal & Errors</h2>
-                <table>
-                    <tr>
-                        <td><kbd>⌃ `</kbd></td>
-                        <td>Toggle Terminal</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ ⇧ M</kbd></td>
-                        <td>Diagnostics Panel</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>F8</kbd></td>
-                        <td>Next Error</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⇧ F8</kbd></td>
-                        <td>Prev Error</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="section">
-                <h2>View</h2>
-                <table>
-                    <tr>
-                        <td><kbd>⌘ B</kbd></td>
-                        <td>Left Dock</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ J</kbd></td>
-                        <td>Bottom Dock</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ ⌥ B</kbd></td>
-                        <td>Right Dock</td>
-                    </tr>
-                    <tr>
-                        <td><kbd>⌘ K arrows</kbd></td>
-                        <td>Split Pane</td>
-                    </tr>
-                </table>
+                <div class="card">
+                    <h2>Git</h2>
+                    <table>
+                        <tr>
+                            <td><kbd>⌘ ⌥ B</kbd></td>
+                            <td>Toggle Blame</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌘ ⇧ G</kbd></td>
+                            <td>Git Dock</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>⌃ ⇧ G</kbd></td>
+                            <td>Git Select</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
     </body>
